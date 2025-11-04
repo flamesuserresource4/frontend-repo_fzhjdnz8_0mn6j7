@@ -1,92 +1,51 @@
+import { ShoppingCart, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { ShoppingCart } from 'lucide-react';
 
 const products = [
-  {
-    id: 1,
-    name: 'Nebula Vase',
-    price: '$49',
-    colorFrom: 'from-purple-700/40',
-    colorTo: 'to-indigo-700/40',
-    desc: 'Parametric, fluid contours echoing interstellar clouds.',
-  },
-  {
-    id: 2,
-    name: 'Orbit Desk Lamp',
-    price: '$129',
-    colorFrom: 'from-indigo-700/40',
-    colorTo: 'to-blue-700/40',
-    desc: 'Sleek arcs and a soft halo reminiscent of planetary rings.',
-  },
-  {
-    id: 3,
-    name: 'Stellar Pen Stand',
-    price: '$29',
-    colorFrom: 'from-fuchsia-700/40',
-    colorTo: 'to-purple-700/40',
-    desc: 'Tessellated geometry with a cosmic sheen.',
-  },
-  {
-    id: 4,
-    name: 'Lagrange Mobile',
-    price: '$89',
-    colorFrom: 'from-blue-700/40',
-    colorTo: 'to-indigo-700/40',
-    desc: 'Balanced kinetic sculpture inspired by orbital nodes.',
-  },
+  { id: 1, name: 'Nebula Figurine', price: '$39', rating: 5, img: 'https://images.unsplash.com/photo-1618172193763-c511deb635ca?q=80&w=1200&auto=format&fit=crop' },
+  { id: 2, name: 'Lunar Coaster Set', price: '$24', rating: 4, img: 'https://images.unsplash.com/photo-1551817958-20204c6e20f3?q=80&w=1200&auto=format&fit=crop' },
+  { id: 3, name: 'Stellar Gear Keycap', price: '$19', rating: 5, img: 'https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1200&auto=format&fit=crop' },
+  { id: 4, name: 'Orbital Desk Organizer', price: '$29', rating: 4, img: 'https://images.unsplash.com/photo-1629522698635-829792d8b7eb?q=80&w=1200&auto=format&fit=crop' }
 ];
 
 export default function Shop() {
   return (
-    <section id="shop" className="relative py-24 bg-gradient-to-b from-purple-950 to-black">
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute left-1/2 -translate-x-1/2 top-10 w-[600px] h-[600px] rounded-full bg-purple-600/10 blur-3xl" />
+    <section id="shop" className="relative w-full bg-gradient-to-b from-[#070716] to-black py-24 text-white">
+      <div className="pointer-events-none absolute inset-0 opacity-60">
+        <div className="absolute left-1/2 top-0 h-40 w-40 -translate-x-1/2 rounded-full bg-fuchsia-500/20 blur-3xl" />
+        <div className="absolute right-10 bottom-10 h-32 w-32 rounded-full bg-indigo-500/20 blur-3xl" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
-        <motion.h2
-          className="text-3xl md:text-4xl font-bold"
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6 }}
-        >
-          Shop Creations
-        </motion.h2>
-        <motion.p
-          className="mt-3 text-gray-300 max-w-2xl"
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.7, delay: 0.05 }}
-        >
-          Limited runs, made to order. Each piece is printed, finished, and inspected by hand.
-        </motion.p>
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex items-end justify-between gap-4">
+          <div>
+            <h2 className="text-3xl font-bold sm:text-4xl">Featured Creations</h2>
+            <p className="mt-2 max-w-2xl text-white/70">Curated prints inspired by galaxies, nebulas, and cybernetic patterns.</p>
+          </div>
+          <a href="#contact" className="hidden sm:inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm hover:bg-white/20">
+            <ShoppingCart size={16} /> Custom Order
+          </a>
+        </div>
 
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {products.map((p, i) => (
-            <motion.div
-              key={p.id}
-              className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br ${p.colorFrom} ${p.colorTo}`}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
-              transition={{ duration: 0.5, delay: 0.06 * i }}
-            >
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.08),transparent_40%),radial-gradient(circle_at_70%_80%,rgba(255,255,255,0.06),transparent_45%)]" />
-              <div className="relative p-6">
-                <div className="aspect-square rounded-xl bg-black/20 border border-white/10 flex items-center justify-center">
-                  <div className="w-24 h-24 rounded-full bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/10 animate-pulse" />
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {products.map((p, idx) => (
+            <motion.div key={p.id} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: idx * 0.05 }} viewport={{ once: true, amount: 0.3 }} className="group overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur">
+              <div className="relative h-44 w-full overflow-hidden">
+                <img src={p.img} alt={p.name} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              </div>
+              <div className="p-4">
+                <div className="flex items-center justify-between">
+                  <h3 className="font-semibold">{p.name}</h3>
+                  <span className="text-sm text-white/80">{p.price}</span>
                 </div>
-                <div className="mt-4 flex items-start justify-between">
-                  <div>
-                    <h3 className="font-semibold">{p.name}</h3>
-                    <p className="text-sm text-gray-300">{p.desc}</p>
-                  </div>
-                  <span className="text-purple-300 font-medium">{p.price}</span>
+                <div className="mt-2 flex items-center gap-1 text-yellow-300">
+                  {Array.from({ length: p.rating }).map((_, i) => (
+                    <Star key={i} size={14} fill="currentColor" />
+                  ))}
                 </div>
-                <button className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-md bg-white/10 hover:bg-white/15 text-white border border-white/10">
-                  <ShoppingCart className="w-4 h-4" /> Add to cart
+                <button className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-white/90 px-3 py-2 text-sm font-medium text-black hover:bg-white">
+                  <ShoppingCart size={16} /> Add to cart
                 </button>
               </div>
             </motion.div>
