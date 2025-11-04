@@ -6,7 +6,7 @@ export default function Hero() {
     <section className="relative h-[90vh] w-full overflow-hidden" id="home">
       <div className="absolute inset-0">
         <Spline
-          scene="https://prod.spline.design/er66D6jbuo0hIjmn/scene.splinecode"
+          scene="https://prod.spline.design/ns1MlpZQDFS29uiL/scene.splinecode"
           style={{ width: '100%', height: '100%' }}
         />
       </div>
@@ -21,7 +21,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            3D Prints from the Cosmic Frontier
+            Navigate the Cosmic Universe
           </motion.h1>
           <motion.p
             className="mt-4 text-base md:text-lg text-gray-200 max-w-2xl"
@@ -29,7 +29,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.1 }}
           >
-            We design and craft space‑inspired objects with precision printing, blending futuristic geometry, deep‑space palettes, and smooth, fluid motion.
+            Drift through a galaxy of space‑inspired 3D prints. Fluid motion, deep‑space hues, and futuristic geometry guide your journey.
           </motion.p>
           <motion.div
             className="mt-8 flex gap-4"
@@ -41,13 +41,13 @@ export default function Hero() {
               href="#shop"
               className="px-5 py-3 rounded-md bg-purple-600/90 hover:bg-purple-600 text-white font-medium shadow-lg shadow-purple-500/30"
             >
-              Explore the Shop
+              Enter the Shop
             </a>
             <a
               href="#about"
               className="px-5 py-3 rounded-md bg-white/10 hover:bg-white/15 text-white font-medium backdrop-blur"
             >
-              Learn About Us
+              Who We Are
             </a>
           </motion.div>
         </div>
